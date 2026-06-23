@@ -1,0 +1,21 @@
+{
+  "name": "landinpageexample",
+  "version": "1.0.0",
+  "description": "Landing page moderna servida con Node.js.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "landing-page",
+    "node",
+    "static-site"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {},
+  "engines": {
+    "node": ">=18"
+  }
+}
