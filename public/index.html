@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Landing page moderna para un estudio digital con Node.js."
+    />
+    <title>Lúmina Studio | Landing moderna en Node.js</title>
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#inicio" aria-label="Lúmina Studio inicio">Lúmina</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav" id="site-nav">
+        <a href="#servicios">Servicios</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio" aria-label="Presentacion principal">
+        <div class="hero-overlay"></div>
+        <div class="hero-content reveal">
+          <p class="eyebrow">Estudio digital para marcas en movimiento</p>
+          <h1>Lúmina Studio</h1>
+          <p class="hero-copy">
+            Creamos landing pages rápidas, claras y memorables para convertir visitas en conversaciones reales.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#contacto">Empezar proyecto</a>
+            <a class="button button-secondary" href="#servicios">Ver servicios</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="intro section reveal" id="servicios">
+        <div class="section-kicker">Qué hacemos</div>
+        <div class="split">
+          <h2>Una presencia digital lista para lanzar, medir y mejorar.</h2>
+          <p>
+            Diseñamos experiencias web enfocadas en velocidad, mensaje y acción. Cada bloque tiene un propósito claro:
+            orientar, convencer o convertir.
+          </p>
+        </div>
+      </section>
+
+      <section class="services section">
+        <article class="service-item reveal">
+          <span>01</span>
+          <h3>Estrategia de mensaje</h3>
+          <p>Jerarquía de contenido, propuesta de valor y llamadas a la acción sin ruido.</p>
+        </article>
+        <article class="service-item reveal">
+          <span>02</span>
+          <h3>Diseño responsive</h3>
+          <p>Layouts fluidos que se sienten sólidos en escritorio, tablet y móvil.</p>
+        </article>
+        <article class="service-item reveal">
+          <span>03</span>
+          <h3>Base técnica Node.js</h3>
+          <p>Servidor Node.js, archivos estáticos organizados y scripts listos para desarrollo.</p>
+        </article>
+      </section>
+
+      <section class="process section" id="proceso">
+        <div class="process-image reveal" role="img" aria-label="Equipo trabajando en una mesa de estudio"></div>
+        <div class="process-copy reveal">
+          <div class="section-kicker">Proceso</div>
+          <h2>De una idea breve a una página publicable.</h2>
+          <p>
+            Convertimos objetivos de negocio en una estructura visual concreta: primer impacto, prueba, profundidad y
+            cierre. El resultado queda preparado para evolucionar sin rehacerlo todo.
+          </p>
+          <ul class="check-list">
+            <li>Arquitectura simple de mantener</li>
+            <li>Estilos modernos con CSS puro</li>
+            <li>Interacciones ligeras sin dependencias extra</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="cta section reveal" id="contacto">
+        <p class="eyebrow">Listo para despegar</p>
+        <h2>Construye una primera impresión que trabaje por ti.</h2>
+        <a class="button button-primary" href="mailto:hola@example.com">hola@example.com</a>
+      </section>
+    </main>
+
+    <script src="/script.js"></script>
+  </body>
+</html>
