@@ -1,40 +1,35 @@
 trigger:
-- master
+- dev
 
 pr:
   branches:
     include:
-    - dev
+      - dev
 
 pool: default
 
 steps:
 - script: |
-    echo "Starting pipeline"
-  displayName: "Start MSG"
+    echo "Starting pipeline..."
+  displayName: "Start"
 
 - task: UseNode@1
   inputs:
     version: "18.x"
-  displayName: "Install Node.js"
+  displayName: "Use Node.js 18"
 
 - script: |
     npm install --legacy-peer-deps
-  displayName: "npm install"
+  displayName: "Install dependencies"
 
 - script: |
-    npm run build
-  displayName: "npm build"
-
-- script: |
-    echo "Cleaning target folder"
-    rm -rf /home/proy_dev/landinpageexample/*
-  displayName: "Clean project folder"
-
-- script: |
-    echo "Copying project files"
-    cp -R $(Build.SourcesDirectory)/* /home/proy_dev/landinpageexample/
-  displayName: "Copy project to VPS folder"
+    echo "Deploying project..."
+    rsync -av --delete \
+      --exclude ".git" \
+      --exclude "node_modules" \
+      --exclude ".env" \
+      $(Build.SourcesDirectory)/ /home/proy_dev/landinpageexample/
+  displayName: "Copy project"
 
 - script: |
     cd /home/proy_dev/landinpageexample
@@ -43,4 +38,4 @@ steps:
 
 - script: |
     pm2 restart testweb
-  displayName: "Restart PM2 project"
+  displayName: "Restart PM2"
