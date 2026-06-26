@@ -1,0 +1,46 @@
+trigger:
+- master
+
+pr:
+  branches:
+    include:
+    - dev
+
+pool: default
+
+steps:
+- script: |
+    echo "Starting pipeline"
+  displayName: "Start MSG"
+
+- task: UseNode@1
+  inputs:
+    version: "18.x"
+  displayName: "Install Node.js"
+
+- script: |
+    npm install --legacy-peer-deps
+  displayName: "npm install"
+
+- script: |
+    npm run build
+  displayName: "npm build"
+
+- script: |
+    echo "Cleaning target folder"
+    rm -rf /home/proy_dev/landinpageexample/*
+  displayName: "Clean project folder"
+
+- script: |
+    echo "Copying project files"
+    cp -R $(Build.SourcesDirectory)/* /home/proy_dev/landinpageexample/
+  displayName: "Copy project to VPS folder"
+
+- script: |
+    cd /home/proy_dev/landinpageexample
+    npm install --production --legacy-peer-deps
+  displayName: "Install production dependencies"
+
+- script: |
+    pm2 restart testweb
+  displayName: "Restart PM2 project"
