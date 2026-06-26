@@ -24,7 +24,7 @@ steps:
 
 - script: |
     echo "Deploying project..."
-    rsync -rltDv --delete \
+    rsync -rv --delete --no-times --omit-dir-times \
       --exclude ".git" \
       --exclude "node_modules" \
       --exclude ".env" \
